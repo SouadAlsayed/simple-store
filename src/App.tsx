@@ -2,7 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import PageNotFount from "./pages/PageNotFount";
-import AppLayout from "./components/ui/AppLayout";
+import AppLayout from "./ui/AppLayout";
 
 function App() {
   return (
