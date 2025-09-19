@@ -5,7 +5,7 @@ import Main from "./Main";
 
 function AppLayout() {
   return (
-    <div className="grid h-screen grid-rows-[auto_1fr_auto]  [background-color:var(--color-cream)]">
+    <div className="grid grid-rows-[auto_1fr_auto]  [background-color:var(--color-cream)]">
       <Header />
       <Main>
         <Outlet />

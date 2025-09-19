@@ -1,9 +1,9 @@
 :root {
   /* Core brand */
-  --color-black: #030304; /* Deep black */
-  --color-cream: #f1eee5; /* Soft cream */
-  --color-rose: #dfcbcf; /* Dusty rose */
-  --color-taupe: #bcaa89; /* Earthy beige */
+  --color-black: #030304;
+  --color-cream: #f1eee5;
+  --color-rose: #96737b;
+  or-taupe: #bcaa89;
 
   /* Extended neutrals*/
   --color-beige-dark: #a69478;
@@ -75,4 +75,5 @@ ul {
 button {
   cursor: pointer;
   text-decoration: none;
+  border-radius: 0;
 }
