@@ -1,38 +1,24 @@
 import { Button } from "@/components/ui/button";
 import { useProducts } from "@/context/ProductContext";
-import ButtonLoading from "@/ui/ButtonLoading";
+
 interface QuantityIconsProps {
   id: number;
 }
 
 function QuantityIcons({ id }: QuantityIconsProps) {
-  const { products, setProducts, isLoading } = useProducts();
+  const { cartItems, updateQuantity } = useProducts();
 
-  const product = products.find((p) => p.id === id);
-  const quantity = product ? product.quantity : 1;
+  const item = cartItems.find((i) => i.id === id);
+  const quantity = item?.quantity ?? 1;
 
   function handleIncreaseQuantity() {
-    setProducts(
-      products.map((p) =>
-        p === product ? { ...product, quantity: product.quantity + 1 } : p
-      )
-    );
+    updateQuantity(id, quantity + 1);
   }
 
   function handleDecreaseQuantity() {
-    setProducts(
-      products.map((p) =>
-        p === product
-          ? {
-              ...product,
-              quantity: product.quantity > 1 ? product.quantity - 1 : 1,
-            }
-          : p
-      )
-    );
+    updateQuantity(id, quantity > 1 ? quantity - 1 : 1);
   }
 
-  if (isLoading) return <ButtonLoading />;
   return (
     <>
       <Button

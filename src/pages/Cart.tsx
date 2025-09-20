@@ -1,5 +1,7 @@
+import CartView from "@/features/cart/CartView";
+
 function Cart() {
-  return <main>cart</main>;
+  return <CartView />;
 }
 
 export default Cart;

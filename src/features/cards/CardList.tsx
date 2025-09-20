@@ -11,15 +11,7 @@ function CardList() {
   return (
     <div className="grid grid-cols-3 gap-7">
       {products.map((product) => (
-        <CardItem
-          key={product.id}
-          id={product.id}
-          title={product.title}
-          image={product.image}
-          category={product.category}
-          price={product.price}
-          quantity={product.quantity}
-        />
+        <CardItem key={product.id} product={product} />
       ))}
     </div>
   );

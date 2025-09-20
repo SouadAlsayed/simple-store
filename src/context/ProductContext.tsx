@@ -8,13 +8,19 @@ interface ProductProviderProps {
 
 const ProductsContext = createContext<ProductContextType>({
   products: [],
+  cartItems: [],
   isLoading: false,
   error: null,
   setProducts: () => {},
+  addToCart: () => {},
+  deleteFromCart: () => {},
+  updateQuantity: () => {},
 });
 
 function ProductsProvider({ children }: ProductProviderProps) {
   const [products, setProducts] = useState<Product[]>([]);
+  const [cartItems, setCartItems] = useState<Product[]>([]);
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -35,9 +41,38 @@ function ProductsProvider({ children }: ProductProviderProps) {
       });
   }, []);
 
+  function updateQuantity(id: number, quantity: number) {
+    setCartItems((items) =>
+      items.map((i) => (i.id === id ? { ...i, quantity } : i))
+    );
+  }
+
+  function addToCart(item: Product) {
+    setCartItems((items) => {
+      if (items.find((i) => i.id === item.id))
+        return items.map((i) =>
+          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
+        );
+
+      return [...items, item];
+    });
+  }
+  function deleteFromCart(id: number) {
+    setCartItems(cartItems.filter((i) => i.id !== id));
+  }
+
   return (
     <ProductsContext.Provider
-      value={{ products, isLoading, error, setProducts }}
+      value={{
+        products,
+        isLoading,
+        error,
+        setProducts,
+        cartItems,
+        addToCart,
+        deleteFromCart,
+        updateQuantity,
+      }}
     >
       {children}
     </ProductsContext.Provider>
