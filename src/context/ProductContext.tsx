@@ -10,6 +10,7 @@ const ProductsContext = createContext<ProductContextType>({
   products: [],
   isLoading: false,
   error: null,
+  setProducts: () => {},
 });
 
 function ProductsProvider({ children }: ProductProviderProps) {
@@ -20,7 +21,12 @@ function ProductsProvider({ children }: ProductProviderProps) {
   useEffect(() => {
     getProducts()
       .then((data) => {
-        setProducts(data);
+        const productsWithQuantity = data.map((product: Product) => ({
+          ...product,
+          quantity: 1,
+        }));
+
+        setProducts(productsWithQuantity);
         setIsLoading(false);
       })
       .catch(() => {
@@ -30,7 +36,9 @@ function ProductsProvider({ children }: ProductProviderProps) {
   }, []);
 
   return (
-    <ProductsContext.Provider value={{ products, isLoading, error }}>
+    <ProductsContext.Provider
+      value={{ products, isLoading, error, setProducts }}
+    >
       {children}
     </ProductsContext.Provider>
   );

@@ -10,7 +10,7 @@ import {
 import QuantityIcons from "./QuantityIcons";
 import type { Product } from "@/types/product";
 
-function CardItem({ title, price, category, image }: Product) {
+function CardItem({ id, title, price, category, image }: Product) {
   return (
     <Card className="bg-[var(--gray-50)]">
       <CardHeader>
@@ -25,7 +25,7 @@ function CardItem({ title, price, category, image }: Product) {
 
         <p className="my-3">{price}$</p>
 
-        <QuantityIcons />
+        <QuantityIcons id={id} />
       </CardContent>
 
       <CardFooter className="flex justify-between">

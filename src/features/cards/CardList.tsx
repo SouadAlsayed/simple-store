@@ -18,6 +18,7 @@ function CardList() {
           image={product.image}
           category={product.category}
           price={product.price}
+          quantity={product.quantity}
         />
       ))}
     </div>
