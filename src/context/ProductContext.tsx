@@ -1,3 +1,4 @@
+import { useLocalStorageState } from "@/hooks/useLocalStorage";
 import { getProducts } from "@/services/fetchApi";
 import type { Product, ProductContextType } from "@/types/product";
 import { createContext, useContext, useEffect, useState } from "react";
@@ -19,7 +20,10 @@ const ProductsContext = createContext<ProductContextType>({
 
 function ProductsProvider({ children }: ProductProviderProps) {
   const [products, setProducts] = useState<Product[]>([]);
-  const [cartItems, setCartItems] = useState<Product[]>([]);
+  const [cartItems, setCartItems] = useLocalStorageState<Product[]>(
+    [],
+    "cartItems"
+  );
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
