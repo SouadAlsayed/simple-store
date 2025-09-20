@@ -8,21 +8,22 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import QuantityIcons from "./QuantityIcons";
+import type { Product } from "@/types/product";
 
-function CardItem() {
+function CardItem({ title, price, category, image }: Product) {
   return (
     <Card className="bg-[var(--gray-50)]">
       <CardHeader>
-        <CardTitle>Card Title</CardTitle>
+        <CardTitle>{title}</CardTitle>
         <CardDescription className="text-[var(--gray-600)]">
-          Card Category
+          {category}
         </CardDescription>
       </CardHeader>
 
       <CardContent>
-        <img src="/bg.jpg" />
+        <img className="h-48 w-full object-contain" src={image} />
 
-        <p className="my-3">100$</p>
+        <p className="my-3">{price}$</p>
 
         <QuantityIcons />
       </CardContent>
