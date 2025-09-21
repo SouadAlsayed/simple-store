@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <footer className="[background-color:var(--color-charcoal)] [color:var(--gray-400)]">
-      <div className="grid grid-cols-[2fr_1fr_1fr] justify-between gap-5 px-20 py-10 ">
+      <div className="grid sm:grid-cols-[2fr_1fr_1fr] justify-between gap-5 px-20 py-10 ">
         <div className="flex flex-col px-1.5">
           <h2 className="text-xl [color:var(--color-cream)] font-bold mb-2">
             Veloura Store

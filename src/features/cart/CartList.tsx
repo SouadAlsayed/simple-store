@@ -9,7 +9,7 @@ function CartList() {
   if (isLoading) return <ButtonLoading />;
   if (error) return <Error />;
   return (
-    <section className="container col-span-2 grid gap-7">
+    <section className="grid gap-7 md:col-span-2">
       {cartItems.map((item) => (
         <CartItem key={item.id} item={item} />
       ))}

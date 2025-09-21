@@ -9,7 +9,7 @@ function CardList() {
   if (isLoading) return <ButtonLoading />;
   if (error) return <Error />;
   return (
-    <div className="grid grid-cols-3 gap-7">
+    <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-7">
       {products.map((product) => (
         <CardItem key={product.id} product={product} />
       ))}

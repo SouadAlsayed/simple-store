@@ -8,7 +8,7 @@ function HomeSection() {
          bg-[linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('/bg.jpg')] 
          bg-cover bg-center"
     >
-      <p className="max-w-2xl text-xl text-center text-[var(--color-cream)]">
+      <p className="max-w-2xl text-lg sm:text-xl text-center px-4 text-[var(--color-cream)]">
         Welcome to <span className="font-semibold">Veloura Store</span> — your
         go-to destination for timeless women’s fashion in Egypt. Discover
         elegant clothing that blends comfort, style, and quality, delivered

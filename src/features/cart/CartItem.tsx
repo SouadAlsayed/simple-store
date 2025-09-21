@@ -20,36 +20,36 @@ function CartItem({ item }: CartItemProps) {
   const { deleteFromCart } = useProducts();
 
   return (
-    <Card className="bg-[var(--gray-50)] flex flex-row justify-around">
-      <CardHeader>
+    <Card className="bg-[var(--gray-50)]">
+      <CardHeader className="flex justify-center items-center gap-3">
         <CardTitle>{title}</CardTitle>
         <CardDescription className="text-[var(--gray-600)]">
           {category}
         </CardDescription>
       </CardHeader>
 
-      <CardContent>
-        <img className="h-48 w-full object-contain" src={image} />
+      <CardContent className="flex flex-col sm:flex-row justify-between items-center">
+        <img className="h-40 w-40 object-contain" src={image} />
 
         <p className="my-3">{price}$</p>
-
-        <QuantityIcons id={id} />
+        <div>
+          <QuantityIcons id={id} />
+        </div>
+        <CardFooter className="flex sm:flex-col justify-around items-center mt-3">
+          <Button
+            className="border-b border-[var(--color-charcoal)] hover:text-[var(--color-rose)] hover:border-[var(--color-rose)] mx-3"
+            variant="link"
+          >
+            Show
+          </Button>
+          <Button
+            onClick={() => deleteFromCart(id)}
+            className="bg-[var(--color-charcoal)] text-[var(--color-cream)] hover:bg-[var(--color-night)] mx-3"
+          >
+            Delete
+          </Button>
+        </CardFooter>
       </CardContent>
-
-      <CardFooter className="flex flex-col justify-around">
-        <Button
-          className="border-b border-[var(--color-charcoal)] hover:text-[var(--color-rose)] hover:border-[var(--color-rose)] mx-3"
-          variant="link"
-        >
-          Show
-        </Button>
-        <Button
-          onClick={() => deleteFromCart(id)}
-          className="bg-[var(--color-charcoal)] text-[var(--color-cream)] hover:bg-[var(--color-night)] mx-3"
-        >
-          Remove
-        </Button>
-      </CardFooter>
     </Card>
   );
 }
